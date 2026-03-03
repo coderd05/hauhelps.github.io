@@ -8,87 +8,61 @@
     <style>
         :root {
             --hau-teal: #0F5C63;
-            --hau-cream: #FDFBF7; /* The exact soft off-white from your site */
-            --hau-accent: #E9E6DF;
+            --hau-cream: #FDFBF7;
             --hau-text: #2F2F2F;
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--hau-cream);
             color: var(--hau-text);
             overflow-x: hidden;
         }
 
-        /* Animated Bubble Background */
-        .bubbles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            filter: blur(80px);
-            opacity: 0.5;
-        }
-
-        .bubble {
-            position: absolute;
-            background: var(--hau-teal);
-            border-radius: 50%;
-            animation: float 20s infinite alternate;
-        }
-
-        @keyframes float {
-            from { transform: translate(0, 0); }
-            to { transform: translate(100px, 100px); }
-        }
-
-        /* Header / Hero Section */
+        /* Hero / Header Style */
         header {
-            height: 50vh;
+            height: 40vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: var(--hau-teal);
             color: white;
             text-align: center;
-            border-bottom-left-radius: 100px;
-            border-bottom-right-radius: 100px;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
             margin-bottom: 50px;
+            padding: 0 20px;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             margin: 0;
         }
 
-        /* Content Container */
         .content {
             max-width: 850px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Individual "Bubbles" / Card Sections */
+        /* The Bubble/Card Style */
         .card {
             background: white;
             border: 2px solid var(--hau-teal);
-            border-radius: 40px; /* High rounding to match Camp UI */
+            border-radius: 35px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 10px 10px 0px rgba(15, 92, 99, 0.1);
+            box-shadow: 8px 8px 0px rgba(15, 92, 99, 0.1);
             opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(20px);
+            transition: all 0.7s ease-out;
         }
 
         .card.show {
             opacity: 1;
-            transform: scale(1);
+            transform: translateY(0);
         }
 
         h2 {
@@ -98,12 +72,10 @@
             margin-top: 0;
         }
 
-        p, li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
+        p, li { font-size: 1.1rem; line-height: 1.8; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
 
-        /* The Button Style from Camp Page */
         .cta-button {
             display: inline-block;
             background-color: var(--hau-teal);
@@ -114,14 +86,11 @@
             font-weight: 600;
             margin-top: 20px;
             transition: 0.3s;
-            border: 2px solid transparent;
         }
 
         .cta-button:hover {
-            background-color: white;
-            color: var(--hau-teal);
-            border: 2px solid var(--hau-teal);
-            transform: translateY(-5px);
+            transform: scale(1.05);
+            filter: brightness(1.2);
         }
 
         footer {
@@ -134,11 +103,6 @@
 </head>
 <body>
 
-    <div class="bubbles">
-        <div class="bubble" style="width: 400px; height: 400px; top: -100px; left: -100px;"></div>
-        <div class="bubble" style="width: 300px; height: 300px; bottom: 10%; right: -50px; animation-duration: 25s;"></div>
-    </div>
-
     <header>
         <h1>Start a Branch</h1>
     </header>
@@ -146,24 +110,29 @@
     <div class="content">
         <div class="card">
             <h2>Start Your Own Branch</h2>
-            <p>Welcome to the Start Your Own Branch page! We are so excited that you are interested in expanding the mission of Hopkinton Advocacy for the Unhoused to your own community. By starting a branch, you will be taking a direct stand against homelessness and helping to provide vital resources and support to those in need.</p>
+            <p>Welcome to the Start Your Own Branch page! We are so excited that you are interested in expanding the mission of Hopkinton Advocacy for the Unhoused to your own community. By starting a branch, you will be taking a direct stand against homelessness and helping to provide vital resources and support to those in need in your local area.</p>
         </div>
 
         <div class="card">
             <h2>Why Start a Branch?</h2>
-            <p>Starting a branch of HAU is a powerful way to make a difference. As a branch leader, you will:</p>
+            <p>Starting a branch of HAU is a powerful way to make a difference. As a branch leader, you will have the opportunity to:</p>
             <ul>
                 <li>Mobilize your community to support unhoused individuals.</li>
-                <li>Coordinate local donation drives and advocacy efforts.</li>
-                <li>Build a network of volunteers dedicated to social justice.</li>
-                <li>Receive mentorship and resources from the main HAU team.</li>
+                <li>Coordinate local donation drives and advocacy efforts tailored to your community's specific needs.</li>
+                <li>Build a network of volunteers and supporters dedicated to social justice and housing equity.</li>
+                <li>Receive guidance, resources, and mentorship from the main HAU team.</li>
             </ul>
         </div>
 
+        <div class="card">
+            <h2>What to Expect</h2>
+            <p>Starting a branch is a significant commitment, but it's also incredibly rewarding. We'll work closely with you to ensure you have the tools and support you need to be successful. From initial setup to ongoing projects, the HAU team will be with you every step of the way.</p>
+        </div>
+
         <div class="card" style="text-align: center;">
-            <h2>Ready to Begin?</h2>
-            <p>If you're ready to take the first step, click the button below to fill out our Branch Interest Form. Our team will review your application and get back to you shortly!</p>
-            <a href="INSERT_FORM_LINK_HERE" class="cta-button">Branch Interest Form</a>
+            <h2>Ready to Lead?</h2>
+            <p>If you're ready to take the first step toward starting an HAU branch in your community, please click the button below to fill out our Branch Interest Form. Our team will review your application and reach out to you to discuss the next steps.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv2y6_N4_u8G9HkS6_9M_7S5R-H8_9N_8K/viewform" class="cta-button">Branch Interest Form</a>
         </div>
     </div>
 
@@ -172,7 +141,6 @@
     </footer>
 
     <script>
-        // This script handles the "Bounce In" effect as you scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -183,6 +151,5 @@
 
         document.querySelectorAll('.card').forEach((el) => observer.observe(el));
     </script>
-
 </body>
 </html>
