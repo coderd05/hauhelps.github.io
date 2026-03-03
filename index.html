@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start a Branch | HAU Helps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --camp-orange: #C8522D;
@@ -20,12 +20,10 @@
             line-height: 1.6;
         }
 
-        /* Hero Header */
         header {
             padding: 80px 20px;
             text-align: center;
             background-color: var(--camp-cream);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         header h1 {
@@ -33,202 +31,139 @@
             font-size: 4rem;
             margin: 0;
             color: var(--camp-dark);
+            border: 3px solid var(--camp-dark);
+            display: inline-block;
+            padding: 10px 40px;
         }
 
-        header h1 span {
-            color: var(--camp-orange);
-            font-style: italic;
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        .step-section { margin-bottom: 60px; }
+
+        h2 { font-family: 'Abril Fatface', serif; font-size: 1.8rem; color: var(--camp-dark); margin-bottom: 10px; }
+
+        /* Step 2 Email Box */
+        .email-template {
+            background: white;
+            border: 1px solid #7ea6d1; /* Matches the blue-ish border in your screenshot */
+            padding: 25px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #333;
         }
 
-        /* Alternating Content Sections */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            min-height: 450px;
-        }
-
-        .row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .text-col {
-            flex: 1;
-            padding: 60px 8%;
-            min-width: 320px;
-        }
-
-        .visual-col {
-            flex: 1;
-            min-width: 320px;
-            align-self: stretch;
-            background-color: var(--camp-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--camp-cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .visual-col.orange { background-color: var(--camp-orange); }
-
-        .step-num {
+        /* Congrats Section */
+        .congrats {
+            text-align: center;
             font-family: 'Abril Fatface', serif;
-            font-size: 8rem;
-            opacity: 0.2;
-            position: absolute;
-            line-height: 1;
-        }
-
-        h2 {
-            font-family: 'Abril Fatface', serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin: 80px 0;
             color: var(--camp-dark);
         }
 
-        .visual-col h2 { color: var(--camp-cream); z-index: 1; }
-
-        /* Email Template Box */
-        .template-card {
-            background: white;
-            border: 2px solid var(--camp-dark);
-            padding: 25px;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            box-shadow: 6px 6px 0px var(--camp-orange);
-        }
-
-        /* Team Grid - Compact Version */
-        .team-section {
-            padding: 100px 5%;
-            text-align: center;
-        }
+        /* Team Section */
+        .team-header { text-align: center; margin-bottom: 50px; }
+        .team-header h2 { font-size: 2.5rem; }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
-        .member {
-            background: white;
-            padding: 20px;
-            border: 1px solid #ddd;
-            transition: 0.3s;
-        }
-
-        .member:hover { transform: translateY(-10px); }
+        .member { text-align: center; font-size: 0.85rem; }
 
         .member img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 100%;
+            aspect-ratio: 3/4;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid var(--camp-orange);
         }
 
-        .member h3 { font-family: 'Abril Fatface', serif; margin: 10px 0; }
-        .member a { color: var(--camp-orange); font-weight: bold; text-decoration: none; }
+        .member h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin: 5px 0; font-size: 1rem; }
+        .member p { margin: 5px 0; color: #444; line-height: 1.4; }
+        .member a { color: var(--camp-orange); text-decoration: underline; word-break: break-all; }
 
-        footer {
-            background: var(--camp-dark);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            font-family: 'Abril Fatface', serif;
-        }
-
+        footer { padding: 40px; text-align: center; font-family: 'Abril Fatface', serif; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Start a <span>Branch</span></h1>
-        <p>Follow the steps below to lead change in your community.</p>
+        <h1>Start a Branch</h1>
     </header>
 
-    <div class="row">
-        <div class="text-col">
-            <h2>Step 1: Contact</h2>
-            <p>Contact our Branch Coordinator, <strong>Maanya</strong>, at <strong>+1 508-395-0774</strong>.</p>
-            <p>Let her know your grade, your high school, and your intent to start a branch. She will guide you through the initial approval process and provide necessary materials.</p>
-        </div>
-        <div class="visual-col">
-            <div class="step-num">01</div>
-            <h2>The Outreach</h2>
-        </div>
-    </div>
+    <div class="container">
+        <p style="text-align: center; margin-bottom: 60px;">We are always looking for additional branches in highschools. Please complete the steps outlined below to start your own branch journey.</p>
 
-    <div class="row">
-        <div class="text-col">
-            <h2>Step 2: Propose</h2>
-            <p>Reach out to your Vice Principal to express interest in starting a club. Use the template below to keep it professional:</p>
-            <div class="template-card">
+        <div class="step-section">
+            <h2>Step 1.</h2>
+            <p>Contact our Branch Coordinator, Maanya, at +1 508-395-0774. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
+        </div>
+
+        <div class="step-section">
+            <h2>Step 2:</h2>
+            <p>Contact Vice principal and express interest in starting club. You can use this template:</p>
+            <div class="email-template">
                 <strong>Subject: Interest in Starting a New Club</strong><br><br>
-                Hello Mr./Ms. [Last Name],<br>
-                My name is [Your Name]... I've recently become involved with Advocacy for the Unhoused, and I believe it would be a meaningful addition to our school...
+                Hello Mr./Ms. [Vice Principal's Last Name],<br>
+                I hope you're having a great day.<br><br>
+                My name is [Your Name], and I'm a [grade level, e.g., freshman]. I've recently become involved with a nonprofit organization called Advocacy for the Unhoused, and I believe it would be a meaningful addition to our school community.<br><br>
+                I'm interested in starting a branch of Advocacy for the Unhoused as a club here. Could you please let me know what the process is for starting a new club? Feel free to check out the organization's website at www.hauhelps.org for more information.<br><br>
+                Thanks,<br>
+                [Your Name]
             </div>
         </div>
-        <div class="visual-col orange">
-            <div class="step-num">02</div>
-            <h2>The Pitch</h2>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="text-col">
-            <h2>Step 3: Organize</h2>
-            <p>To become official, you'll need the following:</p>
+        <div class="step-section">
+            <h2>Step 3:</h2>
             <ul>
-                <li>A core group of at least <strong>5 people</strong>.</li>
-                <li>A <strong>Teacher Sponsor</strong> or advisor (can be from any department).</li>
+                <li>Find a group of 5 people minimum to participate in the club.</li>
+                <li>Find a teacher sponsor/advisor. Since this is a student-run club, the teacher can work in any field.</li>
             </ul>
-            <p>Congrats. You are now an official branch of our non-profit.</p>
         </div>
-        <div class="visual-col">
-            <div class="step-num">03</div>
-            <h2>The Launch</h2>
-        </div>
-    </div>
 
-    <div class="team-section">
-        <h2 style="font-size: 3rem;">Meet Your Support <span>Team</span></h2>
-        <p>Our team will be in touch to guide you through the officer selection process.</p>
-        
+        <div class="congrats">
+            Congrats. You are now an official branch of our non-profit.
+        </div>
+
+        <div class="team-header">
+            <h2>Feel free to contact our team for help with your branch:</h2>
+            <p>Our team will be in touch to guide you through the officer selection process and your first couple fundraisers.</p>
+        </div>
+
         <div class="team-grid">
             <div class="member">
-                <img src="https://via.placeholder.com/150" alt="Dilpreet">
+                <img src="dilpreet.jpg" alt="Dilpreet Gill">
                 <h3>Dilpreet Gill</h3>
-                <p>Vice President</p>
+                <p>My name is Dil and I am the vice president. Feel free to message me to discuss fundraising ideas.</p>
                 <a href="mailto:dgill@hilers.org">dgill@hilers.org</a>
             </div>
+
             <div class="member">
-                <img src="https://via.placeholder.com/150" alt="Maanya">
+                <img src="maanya.jpg" alt="Maanya Shettigar">
                 <h3>Maanya Shettigar</h3>
-                <p>Social Media Manager</p>
-                <a href="mailto:maanya.shettigar@gmail.com">Email Maanya</a>
+                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media (posters, videos, stories) for all our branches. Send me your Canva documents at <a href="mailto:maanya.shettigar@gmail.com">maanya.shettigar@gmail.com</a> or text me at 508-395-0774 and we can work together.</p>
             </div>
+
             <div class="member">
-                <img src="https://via.placeholder.com/150" alt="Madhav">
+                <img src="madhav.jpg" alt="Madhav Saxena">
                 <h3>Madhav Saxena</h3>
-                <p>Finance Manager</p>
+                <p>Hi, my name is Madhav. Please feel free to contact me if you need some initial funding for your first fundraisers (bake mix or other supplies).</p>
                 <a href="mailto:msaxena@hilers.org">msaxena@hilers.org</a>
             </div>
+
             <div class="member">
-                <img src="https://via.placeholder.com/150" alt="Yaashwanth">
+                <img src="yaashwanth.jpg" alt="Yaashwanth Narendran">
                 <h3>Yaashwanth Narendran</h3>
-                <p>Secretary</p>
+                <p>Hi, my name is Yaash. I am the secretary for HAU. Please feel free to contact me for any inquiries as well as any of the other officers.</p>
                 <a href="mailto:vnarendran@hilers.org">vnarendran@hilers.org</a>
             </div>
         </div>
     </div>
 
     <footer>
-        Advocacy for the Unhoused | 2026
+        <p>HAU Helps | 2026</p>
     </footer>
 
 </body>
