@@ -151,6 +151,9 @@
             background: white;
             padding: 30px;
             border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .member img {
@@ -159,11 +162,20 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--camp-orange);
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
         }
 
         .member h3 { font-family: 'Abril Fatface', serif; font-size: 1.6rem; margin: 10px 0; }
-        .member a { color: var(--camp-orange); font-weight: bold; text-decoration: underline; }
+        
+        .member-email { 
+            color: var(--camp-orange); 
+            font-weight: bold; 
+            text-decoration: underline;
+            word-wrap: break-word; /* Fix for overflowing emails */
+            overflow-wrap: break-word;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
 
     </style>
 </head>
@@ -231,25 +243,25 @@
                 <img src="Dilpreet_Gill.png" alt="Dilpreet">
                 <h3>Dilpreet Gill</h3>
                 <p>My name is Dil and I am the vice president. Feel free to message me to discuss fundraising ideas.</p>
-                <a href="mailto:dgill@hillers.org">dgill@hillers.org</a>
+                <div class="member-email">dgill@hillers.org</div>
             </div>
             <div class="member">
                 <img src="Maanya_Shettigar.jpg" alt="Maanya">
                 <h3>Maanya Shettigar</h3>
                 <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media for all our branches. Send me your Canva documents.</p>
-                <a href="mailto:maanya.shettigar@gmail.com">maanya.shettigar@gmail.com</a>
+                <div class="member-email">maanya.shettigar@gmail.com</div>
             </div>
             <div class="member">
                 <img src="Madhav_Saxena.jpg" alt="Madhav">
                 <h3>Madhav Saxena</h3>
                 <p>Hi, my name is Madhav. Please feel free to contact me if you need some initial funding for your first fundraisers.</p>
-                <a href="mailto:msaxena@hillers.org">msaxena@hillers.org</a>
+                <div class="member-email">msaxena@hillers.org</div>
             </div>
             <div class="member">
                 <img src="Yaashwanth_Narendran.jpg" alt="Yaashwanth">
                 <h3>Yaashwanth Narendran</h3>
                 <p>Hi, my name is Yaash. I am the secretary for HAU. Please feel free to contact me for any inquiries.</p>
-                <a href="mailto:ynarendran@hillers.org">ynarendran@hillers.org</a>
+                <div class="member-email">ynarendran@hillers.org</div>
             </div>
         </div>
     </div>
@@ -265,7 +277,6 @@
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 } else {
-                    // This makes the effect repeat every time you scroll
                     reveals[i].classList.remove("active");
                 }
             }
