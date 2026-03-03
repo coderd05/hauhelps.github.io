@@ -1,111 +1,155 @@
-/* Hero Section - Matches Camp Banner */
-        .hero {
-            background: linear-gradient(rgba(15, 92, 99, 0.4), rgba(15, 92, 99, 0.4)), 
-                        url('https://images.unsplash.com/photo-1469571486079-7982c749715c?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start a Branch | HAU Helps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hau-teal: #0F5C63;
+            --hau-cream: #FDFBF7; /* The exact soft off-white from your site */
+            --hau-accent: #E9E6DF;
+            --hau-text: #2F2F2F;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--hau-cream);
+            color: var(--hau-text);
+            overflow-x: hidden;
+        }
+
+        /* Animated Bubble Background */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+
+        .bubble {
+            position: absolute;
+            background: var(--hau-teal);
+            border-radius: 50%;
+            animation: float 20s infinite alternate;
+        }
+
+        @keyframes float {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
+        }
+
+        /* Header / Hero Section */
+        header {
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: var(--hau-teal);
+            color: white;
             text-align: center;
-            color: var(--hau-white);
-            border-bottom: 2px solid var(--hau-dark);
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            margin-bottom: 50px;
         }
 
-        .hero h1 {
+        header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 7vw, 4rem);
             margin: 0;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* Layout Sections */
-        .container {
-            max-width: 900px;
+        /* Content Container */
+        .content {
+            max-width: 850px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 20px;
         }
 
-        .section {
-            background: var(--hau-white);
-            border: 1.5px solid var(--hau-dark);
-            border-radius: 12px;
+        /* Individual "Bubbles" / Card Sections */
+        .card {
+            background: white;
+            border: 2px solid var(--hau-teal);
+            border-radius: 40px; /* High rounding to match Camp UI */
             padding: 40px;
-            margin-bottom: 60px;
-            box-shadow: 6px 6px 0px var(--hau-teal);
+            margin-bottom: 40px;
+            box-shadow: 10px 10px 0px rgba(15, 92, 99, 0.1);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.9);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .section.visible {
+        .card.show {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1);
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--hau-teal);
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-top: 0;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 15px;
         }
 
         p, li {
             font-size: 1.1rem;
-            color: #444;
+            line-height: 1.8;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
-        /* Buttons - Matches HA U Style */
-        .btn {
+        /* The Button Style from Camp Page */
+        .cta-button {
             display: inline-block;
             background-color: var(--hau-teal);
             color: white;
-            padding: 15px 35px;
-            text-decoration: none;
+            padding: 18px 40px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin-top: 20px;
-            border: 2px solid var(--hau-dark);
+            transition: 0.3s;
+            border: 2px solid transparent;
         }
 
-        .btn:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 10px 20px rgba(15, 92, 99, 0.3);
+        .cta-button:hover {
+            background-color: white;
+            color: var(--hau-teal);
+            border: 2px solid var(--hau-teal);
+            transform: translateY(-5px);
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            background: var(--hau-teal);
-            color: white;
+            padding: 60px;
             font-family: 'Playfair Display', serif;
+            color: var(--hau-teal);
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="reveal">
-            <h1>Start a Branch</h1>
-        </div>
-    </section>
+    <div class="bubbles">
+        <div class="bubble" style="width: 400px; height: 400px; top: -100px; left: -100px;"></div>
+        <div class="bubble" style="width: 300px; height: 300px; bottom: 10%; right: -50px; animation-duration: 25s;"></div>
+    </div>
 
-    <div class="container">
-        <div class="section">
+    <header>
+        <h1>Start a Branch</h1>
+    </header>
+
+    <div class="content">
+        <div class="card">
             <h2>Start Your Own Branch</h2>
             <p>Welcome to the Start Your Own Branch page! We are so excited that you are interested in expanding the mission of Hopkinton Advocacy for the Unhoused to your own community. By starting a branch, you will be taking a direct stand against homelessness and helping to provide vital resources and support to those in need.</p>
         </div>
 
-        <div class="section">
+        <div class="card">
             <h2>Why Start a Branch?</h2>
             <p>Starting a branch of HAU is a powerful way to make a difference. As a branch leader, you will:</p>
             <ul>
@@ -116,34 +160,28 @@
             </ul>
         </div>
 
-        <div class="section" style="text-align: center;">
+        <div class="card" style="text-align: center;">
             <h2>Ready to Begin?</h2>
             <p>If you're ready to take the first step, click the button below to fill out our Branch Interest Form. Our team will review your application and get back to you shortly!</p>
-            <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn">Branch Interest Form</a>
+            <a href="INSERT_FORM_LINK_HERE" class="cta-button">Branch Interest Form</a>
         </div>
     </div>
 
     <footer>
-        <p>Hopkinton Advocacy for the Unhoused</p>
+        <p>&copy; 2024 Hopkinton Advocacy for the Unhoused</p>
     </footer>
 
     <script>
-        /* This script creates the "Bounce" effect as you scroll down */
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        // This script handles the "Bounce In" effect as you scroll
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('show');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('.card').forEach((el) => observer.observe(el));
     </script>
 
 </body>
