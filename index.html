@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start a Branch | HAU Helps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --camp-orange: #C8522D;
             --camp-cream: #F9F6F0;
             --camp-dark: #1A1311;
+            --hau-teal: #0F5C63;
         }
 
         body {
@@ -21,70 +22,114 @@
         }
 
         header {
-            padding: 80px 20px;
+            padding: 100px 20px 60px;
             text-align: center;
-            background-color: var(--camp-cream);
         }
 
         header h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin: 0;
-            color: var(--camp-dark);
             border: 3px solid var(--camp-dark);
             display: inline-block;
-            padding: 10px 40px;
+            padding: 15px 50px;
+            color: var(--hau-teal);
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-        .step-section { margin-bottom: 60px; }
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+        }
 
-        h2 { font-family: 'Abril Fatface', serif; font-size: 1.8rem; color: var(--camp-dark); margin-bottom: 10px; }
-
-        /* Step 2 Email Box */
-        .email-template {
+        .card {
             background: white;
-            border: 1px solid #7ea6d1; /* Matches the blue-ish border in your screenshot */
-            padding: 25px;
-            margin-top: 15px;
-            font-size: 0.95rem;
-            color: #333;
+            border: 2px solid var(--camp-dark);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
         }
 
-        /* Congrats Section */
+        h2 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 1.8rem;
+            margin-top: 0;
+            color: var(--camp-dark);
+        }
+
+        .email-template {
+            border: 1px solid #7ea6d1;
+            padding: 25px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            background-color: #fcfcfc;
+        }
+
         .congrats {
             text-align: center;
             font-family: 'Abril Fatface', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin: 80px 0;
             color: var(--camp-dark);
         }
 
-        /* Team Section */
-        .team-header { text-align: center; margin-bottom: 50px; }
-        .team-header h2 { font-size: 2.5rem; }
+        .team-title {
+            text-align: center;
+            font-family: 'Abril Fatface', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .team-subtitle {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #555;
+        }
 
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
-        .member { text-align: center; font-size: 0.85rem; }
+        .member {
+            text-align: center;
+            font-size: 0.85rem;
+        }
 
         .member img {
             width: 100%;
             aspect-ratio: 3/4;
             object-fit: cover;
             margin-bottom: 15px;
+            border: 1px solid #ddd;
         }
 
-        .member h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin: 5px 0; font-size: 1rem; }
-        .member p { margin: 5px 0; color: #444; line-height: 1.4; }
-        .member a { color: var(--camp-orange); text-decoration: underline; word-break: break-all; }
+        .member h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: 10px 0 5px;
+        }
 
-        footer { padding: 40px; text-align: center; font-family: 'Abril Fatface', serif; font-size: 1.2rem; }
+        .member a {
+            color: var(--hau-teal);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 60px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            margin-top: 100px;
+        }
     </style>
 </head>
 <body>
@@ -94,14 +139,14 @@
     </header>
 
     <div class="container">
-        <p style="text-align: center; margin-bottom: 60px;">We are always looking for additional branches in highschools. Please complete the steps outlined below to start your own branch journey.</p>
+        <p class="intro-text">We are always looking for additional branches in highschools. Please complete the steps outlined below to start your own branch journey.</p>
 
-        <div class="step-section">
+        <div class="card">
             <h2>Step 1.</h2>
-            <p>Contact our Branch Coordinator, Maanya, at +1 508-395-0774. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
+            <p>Contact our Branch Coordinator, Maanya, at <strong>+1 508-395-0774</strong>. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
         </div>
 
-        <div class="step-section">
+        <div class="card">
             <h2>Step 2:</h2>
             <p>Contact Vice principal and express interest in starting club. You can use this template:</p>
             <div class="email-template">
@@ -115,7 +160,7 @@
             </div>
         </div>
 
-        <div class="step-section">
+        <div class="card">
             <h2>Step 3:</h2>
             <ul>
                 <li>Find a group of 5 people minimum to participate in the club.</li>
@@ -127,43 +172,38 @@
             Congrats. You are now an official branch of our non-profit.
         </div>
 
-        <div class="team-header">
-            <h2>Feel free to contact our team for help with your branch:</h2>
-            <p>Our team will be in touch to guide you through the officer selection process and your first couple fundraisers.</p>
-        </div>
+        <h2 class="team-title">Feel free to contact our team for help with your branch:</h2>
+        <p class="team-subtitle">Our team will be in touch to guide you through the officer selection process and your first couple fundraisers.</p>
 
         <div class="team-grid">
             <div class="member">
                 <img src="Dilpreet_Gill.png" alt="Dilpreet Gill">
                 <h3>Dilpreet Gill</h3>
                 <p>My name is Dil and I am the vice president. Feel free to message me to discuss fundraising ideas.</p>
-                <a href="mailto:dgill@hilers.org">dgill@hilers.org</a>
+                <a href="mailto:dgill@hillers.org">dgill@hillers.org</a>
             </div>
-
             <div class="member">
                 <img src="Maanya_Shettigar.jpg" alt="Maanya Shettigar">
                 <h3>Maanya Shettigar</h3>
-                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media (posters, videos, stories) for all our branches. Send me your Canva documents at <a href="mailto:maanya.shettigar@gmail.com">maanya.shettigar@gmail.com</a> or text me at 508-395-0774 and we can work together.</p>
+                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media (posters, videos, stories) for all our branches. Send me your Canva documents at maanya.shettigar@gmail.com or text me at 508-395-0774 and we can work together.</p>
             </div>
-
             <div class="member">
-                <img src="Madhav_Saxena.jpg" alt="Madhav Saxena">
+                <img src="Yaashwanth_Narendran.jpg" alt="Madhav Saxena">
                 <h3>Madhav Saxena</h3>
                 <p>Hi, my name is Madhav. Please feel free to contact me if you need some initial funding for your first fundraisers (bake mix or other supplies).</p>
-                <a href="mailto:msaxena@hilers.org">msaxena@hilers.org</a>
+                <a href="mailto:msaxena@hillers.org">msaxena@hillers.org</a>
             </div>
-
             <div class="member">
                 <img src="Yaashwanth_Narendran.jpg" alt="Yaashwanth Narendran">
                 <h3>Yaashwanth Narendran</h3>
                 <p>Hi, my name is Yaash. I am the secretary for HAU. Please feel free to contact me for any inquiries as well as any of the other officers.</p>
-                <a href="mailto:vnarendran@hilers.org">vnarendran@hilers.org</a>
+                <a href="mailto:ynarendran@hillers.org">ynarendran@hillers.org</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>HAU Helps | 2026</p>
+        <p>&copy; 2026 Hopkinton Advocacy for the Unhoused</p>
     </footer>
 
 </body>
