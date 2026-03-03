@@ -4,225 +4,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start a Branch | HAU Helps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --camp-orange: #C8522D; /* The burnt orange from your Camp page */
-            --camp-cream: #F9F6F0;  /* The off-white cream background */
-            --camp-black: #1A1A1A;  /* The deep black for high contrast */
+            --camp-orange: #C8522D;
+            --camp-cream: #F9F6F0;
+            --camp-dark: #1A1311;
         }
 
         body {
             margin: 0;
-            padding: 0;
             background-color: var(--camp-cream);
             font-family: 'Montserrat', sans-serif;
-            color: var(--camp-black);
+            color: var(--camp-dark);
+            line-height: 1.6;
         }
 
-        /* Split Hero Section */
-        .hero {
-            display: flex;
-            min-height: 80vh;
-            flex-wrap: wrap;
+        /* Hero Header */
+        header {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--camp-cream);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
-        .hero-left {
-            flex: 1;
-            padding: 80px 5%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-width: 350px;
-        }
-
-        .hero-right {
-            flex: 1;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            min-width: 350px;
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
-            color: white;
-        }
-
-        h1 {
+        header h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: clamp(3rem, 8vw, 5rem);
-            line-height: 1.1;
-            margin: 0 0 20px 0;
+            font-size: 4rem;
+            margin: 0;
+            color: var(--camp-dark);
         }
 
-        h1 span {
+        header h1 span {
             color: var(--camp-orange);
             font-style: italic;
         }
 
-        /* Step Sections */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 20px;
+        /* Alternating Content Sections */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            min-height: 450px;
         }
 
-        .step-card {
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        .row:nth-child(even) {
+            flex-direction: row-reverse;
         }
 
-        .step-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .text-col {
+            flex: 1;
+            padding: 60px 8%;
+            min-width: 320px;
         }
 
-        .step-number {
+        .visual-col {
+            flex: 1;
+            min-width: 320px;
+            align-self: stretch;
+            background-color: var(--camp-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--camp-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-col.orange { background-color: var(--camp-orange); }
+
+        .step-num {
             font-family: 'Abril Fatface', serif;
-            font-size: 1.5rem;
-            color: var(--camp-orange);
-            margin-bottom: 10px;
+            font-size: 8rem;
+            opacity: 0.2;
+            position: absolute;
+            line-height: 1;
         }
 
-        .email-template {
-            border-left: 4px solid var(--camp-orange);
-            background: #fff;
-            padding: 30px;
+        h2 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--camp-dark);
+        }
+
+        .visual-col h2 { color: var(--camp-cream); z-index: 1; }
+
+        /* Email Template Box */
+        .template-card {
+            background: white;
+            border: 2px solid var(--camp-dark);
+            padding: 25px;
             margin-top: 20px;
-            font-size: 0.95rem;
-            box-shadow: 10px 10px 0px var(--camp-black);
+            font-size: 0.9rem;
+            box-shadow: 6px 6px 0px var(--camp-orange);
         }
 
-        /* Team Section */
+        /* Team Grid - Compact Version */
+        .team-section {
+            padding: 100px 5%;
+            text-align: center;
+        }
+
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        .team-member {
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .team-member img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            filter: grayscale(20%);
-        }
-
-        .btn-main {
-            display: inline-block;
-            background: var(--camp-black);
-            color: white;
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 30px;
+        .member {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
             transition: 0.3s;
         }
 
-        .btn-main:hover {
-            background: var(--camp-orange);
-            transform: scale(1.05);
+        .member:hover { transform: translateY(-10px); }
+
+        .member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--camp-orange);
         }
 
+        .member h3 { font-family: 'Abril Fatface', serif; margin: 10px 0; }
+        .member a { color: var(--camp-orange); font-weight: bold; text-decoration: none; }
+
         footer {
-            background: var(--camp-black);
+            background: var(--camp-dark);
             color: white;
-            padding: 60px 20px;
+            padding: 40px;
             text-align: center;
+            font-family: 'Abril Fatface', serif;
         }
+
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="hero-left">
-            <h1>Start a <span>Branch.</span></h1>
-            <p>We are always looking for additional branches in highschools. Please complete the steps outlined below to start your own branch journey.</p>
-            <a href="#steps" class="btn-main">View the Steps ↓</a>
-        </div>
-        <div class="hero-right">
-            <div>
-                <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 10px;">Branch Journey</p>
-                <h2 style="font-family: 'Abril Fatface', serif; font-size: 2.5rem; margin: 0;">Lead in 2026</h2>
-            </div>
-        </div>
-    </section>
+    <header>
+        <h1>Start a <span>Branch</span></h1>
+        <p>Follow the steps below to lead change in your community.</p>
+    </header>
 
-    <div class="container" id="steps">
-        <div class="step-card">
-            <div class="step-number">Step 1.</div>
-            <p>Contact our Branch Coordinator, Maanya, at +1 508-395-0774. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
+    <div class="row">
+        <div class="text-col">
+            <h2>Step 1: Contact</h2>
+            <p>Contact our Branch Coordinator, <strong>Maanya</strong>, at <strong>+1 508-395-0774</strong>.</p>
+            <p>Let her know your grade, your high school, and your intent to start a branch. She will guide you through the initial approval process and provide necessary materials.</p>
         </div>
+        <div class="visual-col">
+            <div class="step-num">01</div>
+            <h2>The Outreach</h2>
+        </div>
+    </div>
 
-        <div class="step-card">
-            <div class="step-number">Step 2.</div>
-            <p>Contact Vice Principal and express interest in starting a club. You can use this template:</p>
-            <div class="email-template">
+    <div class="row">
+        <div class="text-col">
+            <h2>Step 2: Propose</h2>
+            <p>Reach out to your Vice Principal to express interest in starting a club. Use the template below to keep it professional:</p>
+            <div class="template-card">
                 <strong>Subject: Interest in Starting a New Club</strong><br><br>
-                Hello Mr./Ms. [Vice Principal's Last Name],<br>
-                I hope you're having a great day.<br><br>
-                My name is [Your Name], and I'm a [grade level, e.g., freshman]. I've recently become involved with a nonprofit organization called Advocacy for the Unhoused, and I believe it would be a meaningful addition to our school community...
+                Hello Mr./Ms. [Last Name],<br>
+                My name is [Your Name]... I've recently become involved with Advocacy for the Unhoused, and I believe it would be a meaningful addition to our school...
             </div>
         </div>
-
-        <div class="step-card">
-            <div class="step-number">Step 3.</div>
-            <ul>
-                <li>Find a group of 5 people minimum to participate in the club.</li>
-                <li>Find a teacher sponsor/advisor. Since this is a student-run club, the teacher can work in any field.</li>
-            </ul>
+        <div class="visual-col orange">
+            <div class="step-num">02</div>
+            <h2>The Pitch</h2>
         </div>
+    </div>
 
-        <h2 style="font-family: 'Abril Fatface', serif; text-align: center; margin: 80px 0 20px;">Feel free to contact our team for help:</h2>
+    <div class="row">
+        <div class="text-col">
+            <h2>Step 3: Organize</h2>
+            <p>To become official, you'll need the following:</p>
+            <ul>
+                <li>A core group of at least <strong>5 people</strong>.</li>
+                <li>A <strong>Teacher Sponsor</strong> or advisor (can be from any department).</li>
+            </ul>
+            <p>Congrats. You are now an official branch of our non-profit.</p>
+        </div>
+        <div class="visual-col">
+            <div class="step-num">03</div>
+            <h2>The Launch</h2>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <h2 style="font-size: 3rem;">Meet Your Support <span>Team</span></h2>
+        <p>Our team will be in touch to guide you through the officer selection process.</p>
         
         <div class="team-grid">
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300" alt="Dilpreet">
-                <strong>Dilpreet Gill</strong>
-                <p>Vice President<br>dgill@hilers.org</p>
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Dilpreet">
+                <h3>Dilpreet Gill</h3>
+                <p>Vice President</p>
+                <a href="mailto:dgill@hilers.org">dgill@hilers.org</a>
             </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300" alt="Maanya">
-                <strong>Maanya Shettigar</strong>
-                <p>Social Media Manager<br>mshettigar@gmail.com</p>
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Maanya">
+                <h3>Maanya Shettigar</h3>
+                <p>Social Media Manager</p>
+                <a href="mailto:maanya.shettigar@gmail.com">Email Maanya</a>
             </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300" alt="Madhav">
-                <strong>Madhav Saxena</strong>
-                <p>Finance Manager<br>msaxena@hilers.org</p>
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Madhav">
+                <h3>Madhav Saxena</h3>
+                <p>Finance Manager</p>
+                <a href="mailto:msaxena@hilers.org">msaxena@hilers.org</a>
             </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300" alt="Yaashwanth">
-                <strong>Yaashwanth Narendran</strong>
-                <p>Secretary<br>ynarendran@hilers.org</p>
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Yaashwanth">
+                <h3>Yaashwanth Narendran</h3>
+                <p>Secretary</p>
+                <a href="mailto:vnarendran@hilers.org">vnarendran@hilers.org</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p style="font-family: 'Abril Fatface', serif; font-size: 1.5rem;">Advocacy for the Unhoused</p>
+        Advocacy for the Unhoused | 2026
     </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.step-card').forEach(card => observer.observe(card));
-    </script>
 
 </body>
 </html>
