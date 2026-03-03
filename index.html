@@ -18,22 +18,41 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--camp-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Reveal Animation Effect */
+        /* --- THE FADE-IN REVEAL EFFECT --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            will-change: opacity, transform;
         }
 
-        .reveal.visible {
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
+        /* Staggered delay for team members */
+        .member {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .team-section.active .member {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-section.active .member:nth-child(1) { transition-delay: 0.2s; }
+        .team-section.active .member:nth-child(2) { transition-delay: 0.4s; }
+        .team-section.active .member:nth-child(3) { transition-delay: 0.6s; }
+        .team-section.active .member:nth-child(4) { transition-delay: 0.8s; }
+
         header {
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             background-color: var(--camp-cream);
             border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -43,7 +62,6 @@
             font-family: 'Abril Fatface', serif;
             font-size: 4rem;
             margin: 0;
-            color: var(--camp-dark);
         }
 
         header h1 span {
@@ -55,7 +73,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            min-height: 450px;
+            min-height: 500px;
         }
 
         .row:nth-child(even) {
@@ -64,7 +82,7 @@
 
         .text-col {
             flex: 1;
-            padding: 60px 8%;
+            padding: 80px 8%;
             min-width: 320px;
         }
 
@@ -78,7 +96,6 @@
             justify-content: center;
             color: var(--camp-cream);
             position: relative;
-            overflow: hidden;
         }
 
         .visual-col.orange { background-color: var(--camp-orange); }
@@ -88,17 +105,13 @@
             font-size: 8rem;
             opacity: 0.2;
             position: absolute;
-            line-height: 1;
         }
 
         h2 {
             font-family: 'Abril Fatface', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            color: var(--camp-dark);
         }
-
-        .visual-col h2 { color: var(--camp-cream); z-index: 1; }
 
         .template-card {
             background: white;
@@ -106,164 +119,152 @@
             padding: 25px;
             margin-top: 20px;
             font-size: 0.9rem;
-            text-align: left;
             box-shadow: 6px 6px 0px var(--camp-orange);
+            color: var(--camp-dark);
         }
 
-        /* NEW COLOR CHANGE FOR CONGRATS SECTION */
+        /* --- CONGRATS COLOR CHANGE --- */
         .congrats-banner {
             background-color: var(--camp-orange);
             color: white;
-            padding: 100px 20px;
+            padding: 120px 20px;
             text-align: center;
             font-family: 'Abril Fatface', serif;
-            font-size: 3rem;
-            border-top: 5px solid var(--camp-dark);
-            border-bottom: 5px solid var(--camp-dark);
+            font-size: 3.5rem;
+            border-top: 6px solid var(--camp-dark);
+            border-bottom: 6px solid var(--camp-dark);
         }
 
         .team-section {
-            padding: 100px 5%;
+            padding: 100px 5% 150px;
             text-align: center;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .member {
             background: white;
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #ddd;
-            text-align: center;
         }
 
         .member img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid var(--camp-orange);
+            border: 4px solid var(--camp-orange);
+            margin-bottom: 20px;
         }
 
-        .member h3 { font-family: 'Abril Fatface', serif; margin: 10px 0; }
-        .member p { font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; }
-        .member a { color: var(--camp-orange); font-weight: bold; text-decoration: underline; font-size: 0.85rem; }
+        .member h3 { font-family: 'Abril Fatface', serif; font-size: 1.6rem; margin: 10px 0; }
+        .member a { color: var(--camp-orange); font-weight: bold; text-decoration: underline; }
 
-        footer {
-            background: var(--camp-dark);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            font-family: 'Abril Fatface', serif;
-        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Start a <span>Branch</span></h1>
-        <p>We are always looking for additional branches in highschools. Please complete the steps below.</p>
+        <p>Complete the steps below to lead change in your community.</p>
     </header>
 
     <div class="row reveal">
         <div class="text-col">
             <h2>Step 1: Contact</h2>
             <p>Contact our Branch Coordinator, <strong>Maanya</strong>, at <strong>+1 508-395-0774</strong>.</p>
-            <p>Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
+            <p>Let her know your grade, high school, and intent. She will provide all necessary materials and guidance.</p>
         </div>
         <div class="visual-col">
             <div class="step-num">01</div>
-            <h2>The Outreach</h2>
+            <h2 style="color: white;">Outreach</h2>
         </div>
     </div>
 
     <div class="row reveal">
         <div class="text-col">
             <h2>Step 2: Propose</h2>
-            <p>Contact your Vice Principal and express interest in starting a club. You can use this template:</p>
+            <p>Contact your Vice Principal and express interest using this template:</p>
             <div class="template-card">
                 <strong>Subject: Interest in Starting a New Club</strong><br><br>
-                Hello Mr./Ms. [Vice Principal's Last Name],<br>
-                I hope you're having a great day.<br><br>
-                My name is [Your Name], and I'm a [grade level, e.g., freshman]. I've recently become involved with a nonprofit organization called Advocacy for the Unhoused, and I believe it would be a meaningful addition to our school community.<br><br>
-                I'm interested in starting a branch of Advocacy for the Unhoused as a club here. Could you please let me know what the process is for starting a new club? Feel free to check out the organization's website at www.hauhelps.org for more information.<br><br>
-                Thanks,<br>
-                [Your Name]
+                Hello Mr./Ms. [Last Name],<br>
+                My name is [Your Name], and I'm a [grade level]. I've recently become involved with Advocacy for the Unhoused, and I believe it would be a meaningful addition to our school...
             </div>
         </div>
         <div class="visual-col orange">
             <div class="step-num">02</div>
-            <h2>The Pitch</h2>
+            <h2 style="color: white;">The Pitch</h2>
         </div>
     </div>
 
     <div class="row reveal">
         <div class="text-col">
             <h2>Step 3: Organize</h2>
+            <p>To finalize your branch, ensure you have:</p>
             <ul>
-                <li>Find a group of 5 people minimum to participate in the club.</li>
-                <li>Find a teacher sponsor/advisor. Since this is a student-run club, the teacher can work in any field.</li>
+                <li>A core group of at least 5 members.</li>
+                <li>A teacher sponsor from any department.</li>
             </ul>
         </div>
         <div class="visual-col">
             <div class="step-num">03</div>
-            <h2>The Launch</h2>
+            <h2 style="color: white;">The Launch</h2>
         </div>
     </div>
 
     <div class="congrats-banner reveal">
-        Congrats. You are now an official branch of our non-profit.
+        Congrats. You are now an official branch.
     </div>
 
     <div class="team-section reveal">
-        <h2 style="font-size: 2.5rem;">Feel free to contact our team for help:</h2>
+        <h2>Meet Your Support Team</h2>
         <div class="team-grid">
             <div class="member">
                 <img src="Dilpreet_Gill.png" alt="Dilpreet">
                 <h3>Dilpreet Gill</h3>
-                <p>My name is Dil and I am the vice president. Feel free to message me to discuss fundraising ideas.</p>
+                <p>Vice President. Message me to discuss fundraising ideas.</p>
                 <a href="mailto:dgill@hillers.org">dgill@hillers.org</a>
             </div>
             <div class="member">
                 <img src="Maanya_Shettigar.jpg" alt="Maanya">
                 <h3>Maanya Shettigar</h3>
-                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media for all our branches. Send me your Canva documents.</p>
+                <p>Social Media Manager. I help create media for all our branches.</p>
                 <a href="mailto:maanya.shettigar@gmail.com">maanya.shettigar@gmail.com</a>
             </div>
             <div class="member">
                 <img src="Madhav_Saxena.jpg" alt="Madhav">
                 <h3>Madhav Saxena</h3>
-                <p>Hi, my name is Madhav. Please feel free to contact me if you need some initial funding for your first fundraisers.</p>
+                <p>Finance Manager. Reach out if you need initial funding.</p>
                 <a href="mailto:msaxena@hillers.org">msaxena@hillers.org</a>
             </div>
             <div class="member">
                 <img src="Yaashwanth_Narendran.jpg" alt="Yaashwanth">
                 <h3>Yaashwanth Narendran</h3>
-                <p>Hi, my name is Yaash. I am the secretary for HAU. Please feel free to contact me for any inquiries.</p>
+                <p>Secretary. Reach out for any inquiries.</p>
                 <a href="mailto:ynarendran@hillers.org">ynarendran@hillers.org</a>
             </div>
         </div>
     </div>
 
-    <footer>
-        Hopkinton Advocacy for the Unhoused | 2026
-    </footer>
-
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; 
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
                 }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
     </script>
 
 </body>
