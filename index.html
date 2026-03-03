@@ -4,63 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start a Branch | HAU Helps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --hau-teal: #0F5C63;
-            --hau-cream: #FDFBF7;
-            --hau-text: #2F2F2F;
+            --hau-bg: #F8F9FA; /* The stone/grey background from your site */
+            --hau-border: #2F2F2F;
         }
 
         body {
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
+            background-color: var(--hau-bg);
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--hau-cream);
-            color: var(--hau-text);
-            overflow-x: hidden;
+            color: #333;
         }
 
-        /* Hero / Header Style */
-        header {
-            height: 40vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Hero Banner - Matches Camp Page exactly */
+        .banner {
             background-color: var(--hau-teal);
             color: white;
+            padding: 100px 20px;
             text-align: center;
-            border-bottom-left-radius: 80px;
-            border-bottom-right-radius: 80px;
-            margin-bottom: 50px;
-            padding: 0 20px;
+            border-bottom: 2px solid var(--hau-border);
         }
 
-        header h1 {
+        .banner h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: 3.5rem;
             margin: 0;
         }
 
-        .content {
-            max-width: 850px;
+        /* Section Layouts */
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 60px 20px;
         }
 
-        /* The Bubble/Card Style */
-        .card {
+        /* The "Box" Style from the Camp page */
+        .content-box {
             background: white;
-            border: 2px solid var(--hau-teal);
-            border-radius: 35px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 8px 8px 0px rgba(15, 92, 99, 0.1);
+            border: 2px solid var(--hau-border);
+            padding: 45px;
+            margin-bottom: 50px;
+            text-align: center; /* Vision theme uses centered text for these blocks */
+            border-radius: 0px; /* Google Sites Vision theme uses sharp corners for blocks */
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.7s ease-out;
+            transition: all 0.6s ease-out;
         }
 
-        .card.show {
+        .content-box.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -68,88 +63,109 @@
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--hau-teal);
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-top: 0;
         }
 
-        p, li { font-size: 1.1rem; line-height: 1.8; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        p, li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
 
-        .cta-button {
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        /* Email Template Box */
+        .email-preview {
+            background: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 30px;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Button Style - The exact Teal Pill Button */
+        .btn {
             display: inline-block;
             background-color: var(--hau-teal);
             color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
+            padding: 16px 40px;
             text-decoration: none;
+            border-radius: 50px;
             font-weight: 600;
-            margin-top: 20px;
-            transition: 0.3s;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            transition: 0.3s ease;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
+        .btn:hover {
             filter: brightness(1.2);
+            transform: scale(1.02);
         }
 
         footer {
+            padding: 50px;
             text-align: center;
-            padding: 60px;
-            font-family: 'Playfair Display', serif;
+            border-top: 1px solid #ddd;
             color: var(--hau-teal);
+            font-family: 'Playfair Display', serif;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <section class="banner">
         <h1>Start a Branch</h1>
-    </header>
+    </section>
 
-    <div class="content">
-        <div class="card">
-            <h2>Start Your Own Branch</h2>
-            <p>Welcome to the Start Your Own Branch page! We are so excited that you are interested in expanding the mission of Hopkinton Advocacy for the Unhoused to your own community. By starting a branch, you will be taking a direct stand against homelessness and helping to provide vital resources and support to those in need in your local area.</p>
+    <div class="container">
+        <div class="content-box">
+            <h2>Expand the Mission</h2>
+            <p>We are looking for motivated highschool aged students to start branches in the New England area. By starting a branch, you lead the charge in your community to provide resources for those in need.</p>
         </div>
 
-        <div class="card">
-            <h2>Why Start a Branch?</h2>
-            <p>Starting a branch of HAU is a powerful way to make a difference. As a branch leader, you will have the opportunity to:</p>
-            <ul>
-                <li>Mobilize your community to support unhoused individuals.</li>
-                <li>Coordinate local donation drives and advocacy efforts tailored to your community's specific needs.</li>
-                <li>Build a network of volunteers and supporters dedicated to social justice and housing equity.</li>
-                <li>Receive guidance, resources, and mentorship from the main HAU team.</li>
-            </ul>
+        <div class="content-box">
+            <h2>Email Template</h2>
+            <p>Use the template below to reach out to your school's administration or community leaders to get started.</p>
+            <div class="email-preview">
+                <strong>Subject: Proposal for HAU Branch at [School Name]</strong><br><br>
+                Dear [Name],<br><br>
+                My name is [Your Name] and I am a student at [School Name]. I am writing to you today because I am interested in starting a local branch of Hopkinton Advocacy for the Unhoused (HAU) here in our community...
+            </div>
         </div>
 
-        <div class="card">
-            <h2>What to Expect</h2>
-            <p>Starting a branch is a significant commitment, but it's also incredibly rewarding. We'll work closely with you to ensure you have the tools and support you need to be successful. From initial setup to ongoing projects, the HAU team will be with you every step of the way.</p>
-        </div>
-
-        <div class="card" style="text-align: center;">
-            <h2>Ready to Lead?</h2>
-            <p>If you're ready to take the first step toward starting an HAU branch in your community, please click the button below to fill out our Branch Interest Form. Our team will review your application and reach out to you to discuss the next steps.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv2y6_N4_u8G9HkS6_9M_7S5R-H8_9N_8K/viewform" class="cta-button">Branch Interest Form</a>
+        <div class="content-box">
+            <h2>Ready to Begin?</h2>
+            <p>Fill out our Branch Interest Form and our team will get back to you with the next steps to bring HAU to your community.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv2y6_N4_u8G9HkS6_9M_7S5R-H8_9N_8K/viewform" class="btn">Branch Interest Form</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Hopkinton Advocacy for the Unhoused</p>
+        <p>Hopkinton Advocacy for the Unhoused</p>
     </footer>
 
     <script>
+        // Trigger the bounce/fade animation on scroll
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
+                    entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 });
+        });
 
-        document.querySelectorAll('.card').forEach((el) => observer.observe(el));
+        document.querySelectorAll('.content-box').forEach(box => {
+            observer.observe(box);
+        });
     </script>
 </body>
 </html>
