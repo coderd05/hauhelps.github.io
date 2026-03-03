@@ -10,7 +10,6 @@
             --camp-orange: #C8522D;
             --camp-cream: #F9F6F0;
             --camp-dark: #1A1311;
-            --hau-teal: #0F5C63;
         }
 
         body {
@@ -22,134 +21,160 @@
         }
 
         header {
-            padding: 100px 20px 60px;
+            padding: 80px 20px;
             text-align: center;
+            background-color: var(--camp-cream);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         header h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: 4rem;
             margin: 0;
-            border: 3px solid var(--camp-dark);
-            display: inline-block;
-            padding: 15px 50px;
-            color: var(--hau-teal);
+            color: var(--camp-dark);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        header h1 span {
+            color: var(--camp-orange);
+            font-style: italic;
         }
 
-        .intro-text {
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 60px;
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            min-height: 450px;
         }
 
-        .card {
-            background: white;
-            border: 2px solid var(--camp-dark);
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
+        .row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-col {
+            flex: 1;
+            padding: 60px 8%;
+            min-width: 320px;
+        }
+
+        .visual-col {
+            flex: 1;
+            min-width: 320px;
+            align-self: stretch;
+            background-color: var(--camp-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--camp-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-col.orange { background-color: var(--camp-orange); }
+
+        .step-num {
+            font-family: 'Abril Fatface', serif;
+            font-size: 8rem;
+            opacity: 0.2;
+            position: absolute;
+            line-height: 1;
         }
 
         h2 {
             font-family: 'Abril Fatface', serif;
-            font-size: 1.8rem;
-            margin-top: 0;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             color: var(--camp-dark);
         }
 
-        .email-template {
+        .visual-col h2 { color: var(--camp-cream); z-index: 1; }
+
+        .template-card {
+            background: white;
             border: 1px solid #7ea6d1;
             padding: 25px;
             margin-top: 20px;
             font-size: 0.9rem;
-            line-height: 1.5;
-            background-color: #fcfcfc;
+            text-align: left;
+            box-shadow: 6px 6px 0px var(--camp-orange);
         }
 
-        .congrats {
-            text-align: center;
-            font-family: 'Abril Fatface', serif;
-            font-size: 2.2rem;
-            margin: 80px 0;
-            color: var(--camp-dark);
-        }
-
-        .team-title {
+        .congrats-banner {
+            background-color: var(--camp-dark);
+            color: var(--camp-cream);
+            padding: 60px 20px;
             text-align: center;
             font-family: 'Abril Fatface', serif;
             font-size: 2.5rem;
-            margin-bottom: 10px;
         }
 
-        .team-subtitle {
+        .team-section {
+            padding: 100px 5%;
             text-align: center;
-            margin-bottom: 50px;
-            color: #555;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
         .member {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
             text-align: center;
-            font-size: 0.85rem;
         }
+
+        .member:hover { transform: translateY(-10px); }
 
         .member img {
-            width: 100%;
-            aspect-ratio: 3/4;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 1px solid #ddd;
+            border: 3px solid var(--camp-orange);
         }
 
-        .member h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin: 10px 0 5px;
-        }
-
-        .member a {
-            color: var(--hau-teal);
-            text-decoration: underline;
-            font-weight: 600;
-        }
+        .member h3 { font-family: 'Abril Fatface', serif; margin: 10px 0; }
+        .member p { font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; }
+        .member a { color: var(--camp-orange); font-weight: bold; text-decoration: underline; font-size: 0.85rem; }
 
         footer {
-            padding: 60px;
+            background: var(--camp-dark);
+            color: white;
+            padding: 40px;
             text-align: center;
-            border-top: 1px solid #ddd;
-            margin-top: 100px;
+            font-family: 'Abril Fatface', serif;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Start a Branch</h1>
+        <h1>Start a <span>Branch</span></h1>
+        <p>We are always looking for additional branches in highschools. Please complete the steps below.</p>
     </header>
 
-    <div class="container">
-        <p class="intro-text">We are always looking for additional branches in highschools. Please complete the steps outlined below to start your own branch journey.</p>
-
-        <div class="card">
-            <h2>Step 1.</h2>
-            <p>Contact our Branch Coordinator, Maanya, at <strong>+1 508-395-0774</strong>. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
+    <div class="row">
+        <div class="text-col">
+            <h2>Step 1: Contact</h2>
+            <p>Contact our Branch Coordinator, <strong>Maanya</strong>, at <strong>+1 508-395-0774</strong>.</p>
+            <p>Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
         </div>
+        <div class="visual-col">
+            <div class="step-num">01</div>
+            <h2>The Outreach</h2>
+        </div>
+    </div>
 
-        <div class="card">
-            <h2>Step 2:</h2>
-            <p>Contact Vice principal and express interest in starting club. You can use this template:</p>
-            <div class="email-template">
+    <div class="row">
+        <div class="text-col">
+            <h2>Step 2: Propose</h2>
+            <p>Contact your Vice Principal and express interest in starting a club. You can use this template:</p>
+            <div class="template-card">
                 <strong>Subject: Interest in Starting a New Club</strong><br><br>
                 Hello Mr./Ms. [Vice Principal's Last Name],<br>
                 I hope you're having a great day.<br><br>
@@ -159,42 +184,55 @@
                 [Your Name]
             </div>
         </div>
+        <div class="visual-col orange">
+            <div class="step-num">02</div>
+            <h2>The Pitch</h2>
+        </div>
+    </div>
 
-        <div class="card">
-            <h2>Step 3:</h2>
+    <div class="row">
+        <div class="text-col">
+            <h2>Step 3: Organize</h2>
             <ul>
                 <li>Find a group of 5 people minimum to participate in the club.</li>
                 <li>Find a teacher sponsor/advisor. Since this is a student-run club, the teacher can work in any field.</li>
             </ul>
         </div>
-
-        <div class="congrats">
-            Congrats. You are now an official branch of our non-profit.
+        <div class="visual-col">
+            <div class="step-num">03</div>
+            <h2>The Launch</h2>
         </div>
+    </div>
 
-        <h2 class="team-title">Feel free to contact our team for help with your branch:</h2>
-        <p class="team-subtitle">Our team will be in touch to guide you through the officer selection process and your first couple fundraisers.</p>
+    <div class="congrats-banner">
+        Congrats. You are now an official branch of our non-profit.
+    </div>
 
+    <div class="team-section">
+        <h2 style="font-size: 2.5rem;">Feel free to contact our team for help:</h2>
+        <p>Our team will be in touch to guide you through the officer selection process and your first couple fundraisers.</p>
+        
         <div class="team-grid">
             <div class="member">
-                <img src="Dilpreet_Gill.png" alt="Dilpreet Gill">
+                <img src="Dilpreet_Gill.png" alt="Dilpreet">
                 <h3>Dilpreet Gill</h3>
                 <p>My name is Dil and I am the vice president. Feel free to message me to discuss fundraising ideas.</p>
                 <a href="mailto:dgill@hillers.org">dgill@hillers.org</a>
             </div>
             <div class="member">
-                <img src="Maanya_Shettigar.jpg" alt="Maanya Shettigar">
+                <img src="Maanya_Shettigar.jpg" alt="Maanya">
                 <h3>Maanya Shettigar</h3>
-                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media (posters, videos, stories) for all our branches. Send me your Canva documents at maanya.shettigar@gmail.com or text me at 508-395-0774 and we can work together.</p>
+                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media (posters, videos, stories) for all our branches. Send me your Canva documents.</p>
+                <a href="mailto:maanya.shettigar@gmail.com">maanya.shettigar@gmail.com</a>
             </div>
             <div class="member">
-                <img src="Yaashwanth_Narendran.jpg" alt="Madhav Saxena">
+                <img src="Madhav_Saxena.jpg" alt="Madhav">
                 <h3>Madhav Saxena</h3>
                 <p>Hi, my name is Madhav. Please feel free to contact me if you need some initial funding for your first fundraisers (bake mix or other supplies).</p>
                 <a href="mailto:msaxena@hillers.org">msaxena@hillers.org</a>
             </div>
             <div class="member">
-                <img src="Yaashwanth_Narendran.jpg" alt="Yaashwanth Narendran">
+                <img src="Yaashwanth_Narendran.jpg" alt="Yaashwanth">
                 <h3>Yaashwanth Narendran</h3>
                 <p>Hi, my name is Yaash. I am the secretary for HAU. Please feel free to contact me for any inquiries as well as any of the other officers.</p>
                 <a href="mailto:ynarendran@hillers.org">ynarendran@hillers.org</a>
@@ -203,7 +241,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Hopkinton Advocacy for the Unhoused</p>
+        Hopkinton Advocacy for the Unhoused | 2026
     </footer>
 
 </body>
