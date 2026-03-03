@@ -153,7 +153,6 @@
             border: 1px solid #ddd;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .member img {
@@ -166,15 +165,16 @@
         }
 
         .member h3 { font-family: 'Abril Fatface', serif; font-size: 1.6rem; margin: 10px 0; }
-        
+        .member p { font-size: 0.9rem; margin-bottom: 15px; flex-grow: 1; }
+
         .member-email { 
             color: var(--camp-orange); 
             font-weight: bold; 
             text-decoration: underline;
-            word-wrap: break-word; /* Fix for overflowing emails */
+            word-wrap: break-word;
             overflow-wrap: break-word;
             font-size: 0.85rem;
-            margin-top: auto;
+            display: block;
         }
 
     </style>
@@ -189,7 +189,7 @@
     <div class="row reveal">
         <div class="text-col">
             <h2>Step 1: Contact</h2>
-            <p>Contact our Branch Coordinator, <strong>Maanya</strong>, at <strong>+1 508-395-0774</strong>. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
+            <p>Contact our Branch Coordinator, <strong>Maanya</strong>. Let her know what grade you are in, what high school you go to, and that you intend to start a branch. She will help guide you through the club approval process and provide all necessary materials.</p>
         </div>
         <div class="visual-col">
             <div class="step-num">01</div>
@@ -243,25 +243,25 @@
                 <img src="Dilpreet_Gill.png" alt="Dilpreet">
                 <h3>Dilpreet Gill</h3>
                 <p>My name is Dil and I am the vice president. Feel free to message me to discuss fundraising ideas.</p>
-                <div class="member-email">dgill@hillers.org</div>
+                <a class="member-email" href="mailto:dgill@hillers.org">dgill@hillers.org</a>
             </div>
             <div class="member">
                 <img src="Maanya_Shettigar.jpg" alt="Maanya">
                 <h3>Maanya Shettigar</h3>
-                <p>Hi! My name is Maanya, and I am the social media manager for HAU. I help create media for all our branches. Send me your Canva documents.</p>
-                <div class="member-email">maanya.shettigar@gmail.com</div>
+                <p>Hi! My name is Maanya, and I am the social media manager for HAU. Reach me at <strong>+1 508-395-0774</strong>. I help create media for all our branches. Send me your Canva documents.</p>
+                <a class="member-email" href="mailto:maanya.shettigar@gmail.com">maanya.shettigar@gmail.com</a>
             </div>
             <div class="member">
                 <img src="Madhav_Saxena.jpg" alt="Madhav">
                 <h3>Madhav Saxena</h3>
                 <p>Hi, my name is Madhav. Please feel free to contact me if you need some initial funding for your first fundraisers.</p>
-                <div class="member-email">msaxena@hillers.org</div>
+                <a class="member-email" href="mailto:msaxena@hillers.org">msaxena@hillers.org</a>
             </div>
             <div class="member">
                 <img src="Yaashwanth_Narendran.jpg" alt="Yaashwanth">
                 <h3>Yaashwanth Narendran</h3>
                 <p>Hi, my name is Yaash. I am the secretary for HAU. Please feel free to contact me for any inquiries.</p>
-                <div class="member-email">ynarendran@hillers.org</div>
+                <a class="member-email" href="mailto:ynarendran@hillers.org">ynarendran@hillers.org</a>
             </div>
         </div>
     </div>
