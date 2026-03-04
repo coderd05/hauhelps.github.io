@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparency | HAU Helps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --camp-orange: #C8522D;
+            --camp-cream: #F9F6F0;
+            --camp-dark: #1A1311;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--camp-cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--camp-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: var(--camp-cream);
+        }
+
+        header h1 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 3.5rem;
+            margin: 0;
+            border: 4px solid var(--camp-dark);
+            display: inline-block;
+            padding: 10px 40px;
+            text-transform: capitalize;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Abril Fatface', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--camp-orange);
+        }
+
+        /* --- THE TRACKER BOX --- */
+        .tracker-wrapper {
+            background: white;
+            border: 2px solid var(--camp-dark);
+            padding: 20px;
+            margin: 30px auto;
+            box-shadow: 10px 10px 0px var(--camp-orange);
+            max-width: 700px;
+            position: relative;
+            min-height: 400px; /* Adjust based on your script's height */
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px; /* Matches the height of your script */
+            border: none;
+            display: block;
+        }
+
+        .diagram-container {
+            margin: 50px 0;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        .diagram-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .highlight-bar {
+            background-color: var(--camp-orange);
+            color: white;
+            padding: 50px 20px;
+            margin: 40px 0;
+            font-family: 'Abril Fatface', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            border-top: 5px solid var(--camp-dark);
+            border-bottom: 5px solid var(--camp-dark);
+        }
+
+        p.description {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Transparency</h1>
+    </header>
+
+    <div class="section-container reveal">
+        <h2>Donation Tracking</h2>
+        <p class="description">Please allow up to 2 hours after fundraising as we update our systems. You will be able to see how your individual donation is used to help the unhoused. The UDI should be inputted as a number like this <strong>(XXXXXX-XX)</strong>.</p>
+        
+        <div class="tracker-wrapper">
+            <iframe src="https://script.google.com/macros/s/AKfycbyj_PH3QfcqofReTkSN_WAWJVjvpPsCRymvTorxNjR_nHfIkNvrKp3tNnyCRacsgQvRpA/exec"></iframe>
+        </div>
+    </div>
+
+    <div class="highlight-bar reveal">
+        We pledge to spend every single dollar we fundraise to directly help the Unhoused.
+    </div>
+
+    <div class="section-container reveal">
+        <p class="description">We fundraised $1,011 in Fiscal year 2025. We kept track and <strong>used every single dollar to help the Unhoused</strong>. We donated these supplies to Rosie's place at the end of the year.</p>
+        
+        <div class="diagram-container">
+            <img src="https://via.placeholder.com/1000x500?text=Sankey+Diagram+1+Link" alt="Donation Flow">
+        </div>
+    </div>
+
+    <div class="section-container reveal">
+        <h2>Operating Expenses</h2>
+        <p class="description">All administrative expenses are paid for directly by the Officers of the non-profit. Our expenses for fiscal year 2025 are listed below.</p>
+        
+        <div class="diagram-container">
+            <img src="https://via.placeholder.com/1000x500?text=Sankey+Diagram+2+Link" alt="Expense Flow">
+        </div>
+        <p style="font-size: 0.8rem; font-style: italic;">*Taxes for the amazon order</p>
+    </div>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+
+</body>
+</html>
